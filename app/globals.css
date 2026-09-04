@@ -290,32 +290,56 @@ nav a:focus-visible,
   color: #88857f;
 }
 .about-grid {
+  display: grid;
+  grid-template-columns: minmax(380px, .9fr) minmax(420px, 1fr);
+  align-items: center;
+  gap: clamp(70px, 9vw, 150px);
   margin: 70px 0 110px;
 }
 .about-copy {
   max-width: 760px;
-  margin-left: auto;
   color: #a9a69e;
   font-size: 1.16rem;
   line-height: 1.7;
 }
 .about-gallery {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 14px;
-  margin-top: 58px;
-  overflow: hidden;
+  position: relative;
+  width: min(100%, 520px);
+  height: 510px;
+  isolation: isolate;
 }
 .about-gallery figure {
-  position: relative;
-  height: clamp(320px, 39vw, 520px);
+  position: absolute;
   margin: 0;
   overflow: hidden;
-  border-radius: 18px;
+  border-radius: 50%;
   background: #102d21;
+  border: 5px solid var(--ink);
+  box-shadow: 0 28px 70px rgba(0, 0, 0, .32);
 }
-.about-gallery figure:nth-child(2) {
-  transform: translateY(24px);
+.portrait-one {
+  width: 310px;
+  height: 310px;
+  left: 0;
+  top: 22px;
+  z-index: 2;
+  animation: portraitFloatOne 8s ease-in-out infinite;
+}
+.portrait-two {
+  width: 230px;
+  height: 230px;
+  right: 0;
+  top: 2px;
+  z-index: 1;
+  animation: portraitFloatTwo 9s ease-in-out infinite;
+}
+.portrait-three {
+  width: 285px;
+  height: 285px;
+  right: 35px;
+  bottom: 0;
+  z-index: 3;
+  animation: portraitFloatThree 10s ease-in-out infinite;
 }
 .about-gallery img {
   width: 100%;
@@ -332,6 +356,18 @@ nav a:focus-visible,
 .about-gallery figure:hover img {
   transform: scale(1.035);
   filter: saturate(1) contrast(1);
+}
+@keyframes portraitFloatOne {
+  0%, 100% { transform: translate3d(0, 0, 0) rotate(-2deg); }
+  50% { transform: translate3d(0, -12px, 0) rotate(1deg); }
+}
+@keyframes portraitFloatTwo {
+  0%, 100% { transform: translate3d(0, 0, 0) rotate(2deg); }
+  50% { transform: translate3d(8px, 12px, 0) rotate(-1deg); }
+}
+@keyframes portraitFloatThree {
+  0%, 100% { transform: translate3d(0, 0, 0) rotate(1deg); }
+  50% { transform: translate3d(-8px, -10px, 0) rotate(-2deg); }
 }
 .about-copy p:first-child {
   color: var(--paper);
@@ -741,17 +777,25 @@ footer h2 em {
   }
   .about-grid {
     margin-top: 48px;
+    gap: 54px;
   }
   .about-gallery {
-    gap: 8px;
-    margin-top: 38px;
+    width: min(100%, 430px);
+    height: 410px;
+    margin: 0 auto;
   }
-  .about-gallery figure {
-    height: 48vw;
-    border-radius: 10px;
+  .portrait-one {
+    width: 250px;
+    height: 250px;
   }
-  .about-gallery figure:nth-child(2) {
-    transform: translateY(12px);
+  .portrait-two {
+    width: 180px;
+    height: 180px;
+  }
+  .portrait-three {
+    width: 220px;
+    height: 220px;
+    right: 25px;
   }
   .currently {
     grid-template-columns: 1fr;
