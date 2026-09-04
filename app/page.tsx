@@ -54,7 +54,11 @@ export default function Home() {
     <header>
       <a href="#top" className="signature">emre<span>.</span></a>
       <nav aria-label="Ana menü"><a href="#hakkimda">Hakkımda</a><a href="#bave">Bave</a><a href="#projeler">Projeler</a></nav>
-      <a className="hello-link" href="#iletisim"><span>Merhaba de</span><ArrowUpRight size={16}/></a>
+      <div className="header-actions">
+        <a className="social-link github-link" href="https://github.com/cordukfurkanemre" target="_blank" rel="noreferrer" aria-label="GitHub profilim"><img src="/github.svg" alt="" /></a>
+        <a className="social-link linkedin-link" href="https://www.linkedin.com/in/cordukfurkanemre/" target="_blank" rel="noreferrer" aria-label="LinkedIn profilim"><img src="/linkedin.svg" alt="" /></a>
+        <a className="hello-link" href="#iletisim"><span>Merhaba de</span><ArrowUpRight size={16}/></a>
+      </div>
     </header>
 
     <section className="hero" id="top">
@@ -127,7 +131,7 @@ export default function Home() {
       <p className="section-no reveal">04 — İletişim</p>
       <h2 className="reveal">Bir fikrin varsa<br/><em>konuşabiliriz.</em></h2>
       <a className="email reveal" href="mailto:hello@furkanemrecorduk.com">hello@furkanemrecorduk.com <ArrowUpRight/></a>
-      <div className="footer-bottom"><span>Furkan Emre Çördük · {new Date().getFullYear()}</span><a href="https://github.com/cordukfurkanemre" target="_blank" rel="noreferrer">GitHub ↗</a><a href="#top">Yukarı ↑</a></div>
+      <div className="footer-bottom"><span>Furkan Emre Çördük · {new Date().getFullYear()}</span><a href="#top">Yukarı ↑</a></div>
     </footer>
   </main>;
 }

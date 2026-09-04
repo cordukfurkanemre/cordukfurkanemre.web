@@ -69,15 +69,47 @@ nav {
   backdrop-filter: blur(18px);
 }
 nav a,
-.hello-link {
+.hello-link,
+.social-link {
   transition: background-color 0.2s, color 0.2s, border-color 0.2s, transform 0.2s;
 }
 nav a {
   padding: 10px 16px;
   border-radius: 999px;
 }
-.hello-link {
+.header-actions {
   justify-self: end;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.social-link {
+  width: 42px;
+  height: 42px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  box-shadow: 0 10px 26px rgba(0, 0, 0, 0.16);
+}
+.social-link img {
+  width: 18px;
+  height: 18px;
+}
+.github-link {
+  background: #f4f4f4;
+  border: 1px solid rgba(255, 255, 255, 0.55);
+}
+.linkedin-link {
+  background: #0a66c2;
+  border: 1px solid #3783ce;
+}
+.linkedin-link img {
+  filter: invert(1);
+}
+.social-link:hover {
+  transform: translateY(-2px) scale(1.04);
+}
+.hello-link {
   display: flex;
   align-items: center;
   gap: 8px;
@@ -101,7 +133,8 @@ nav a:hover {
 }
 nav a:focus-visible,
 .signature:focus-visible,
-.hello-link:focus-visible {
+.hello-link:focus-visible,
+.social-link:focus-visible {
   outline: 2px solid var(--orange);
   outline-offset: 3px;
 }
@@ -610,6 +643,22 @@ footer h2 em {
     top: 16px;
   }
   header nav {
+    display: none;
+  }
+  .header-actions {
+    gap: 6px;
+  }
+  .social-link {
+    width: 40px;
+    height: 40px;
+  }
+  .hello-link {
+    width: 40px;
+    height: 40px;
+    justify-content: center;
+    padding: 0;
+  }
+  .hello-link span {
     display: none;
   }
   .hero {
