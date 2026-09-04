@@ -77,11 +77,13 @@ export default function Home() {
       </div>
       <div className="hero-object" aria-hidden="true">
         <svg className="system-map" viewBox="0 0 500 500" fill="none">
-          <path className="system-line line-a" d="M92 154 C164 88 229 121 264 211"/>
-          <path className="system-line line-b" d="M264 211 C307 149 381 164 412 236"/>
-          <path className="system-line line-c" d="M264 211 C229 284 272 351 359 373"/>
-          <path className="system-line line-d" d="M92 154 C109 276 190 342 359 373"/>
-          <path className="system-line line-e" d="M412 236 C394 294 385 337 359 373"/>
+          <defs><linearGradient id="system-gradient" x1="90" y1="140" x2="445" y2="380" gradientUnits="userSpaceOnUse"><stop stopColor="#8ee66b" stopOpacity=".18"/><stop offset=".5" stopColor="#8ee66b" stopOpacity=".58"/><stop offset="1" stopColor="#247a50" stopOpacity=".26"/></linearGradient></defs>
+          <path id="flow-idea" className="system-line" d="M110 145 C165 145 205 180 250 195"/>
+          <path id="flow-design" className="system-line" d="M325 195 C360 195 392 211 417 225"/>
+          <path id="flow-code" className="system-line" d="M445 248 C445 302 420 345 390 375"/>
+          <circle className="flow-signal" r="3"><animateMotion dur="3.8s" repeatCount="indefinite"><mpath href="#flow-idea"/></animateMotion></circle>
+          <circle className="flow-signal" r="3"><animateMotion dur="3.2s" begin="-1.4s" repeatCount="indefinite"><mpath href="#flow-design"/></animateMotion></circle>
+          <circle className="flow-signal" r="3"><animateMotion dur="4.2s" begin="-2.2s" repeatCount="indefinite"><mpath href="#flow-code"/></animateMotion></circle>
         </svg>
         <span className="system-node node-idea"><i/>{en ? 'idea' : 'fikir'}</span>
         <span className="system-node node-design"><i/>{en ? 'design' : 'tasarım'}</span>

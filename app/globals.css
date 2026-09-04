@@ -234,15 +234,13 @@ nav a:focus-visible,
   overflow: visible;
 }
 .system-line {
-  stroke: rgba(142, 230, 107, 0.34);
-  stroke-width: 1.2;
-  stroke-dasharray: 5 8;
-  animation: signal-flow 8s linear infinite;
+  stroke: url(#system-gradient);
+  stroke-width: 1.5;
+  stroke-linecap: round;
 }
-.line-b,
-.line-d {
-  animation-direction: reverse;
-  animation-duration: 11s;
+.flow-signal {
+  fill: #c7ffb0;
+  filter: drop-shadow(0 0 6px rgba(142, 230, 107, 0.9));
 }
 .system-node {
   position: absolute;
@@ -664,9 +662,6 @@ footer h2 em {
 @keyframes particle-drift {
   from { margin: -7px 0 0 -4px; }
   to { margin: 8px 0 0 6px; }
-}
-@keyframes signal-flow {
-  to { stroke-dashoffset: -52; }
 }
 @keyframes node-float {
   50% { transform: translateY(-9px); }
