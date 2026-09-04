@@ -157,12 +157,10 @@ export default function Home() {
       <h2 className="reveal">{en ? <>Have an idea?<br/><em>Let’s talk.</em></> : <>Bir fikrin varsa<br/><em>konuşabiliriz.</em></>}</h2>
       <a
         className="email reveal"
-        href="mailto:contact@cordukfurkanemre.com"
-        onClick={(event) => {
-          event.preventDefault();
-          window.location.assign('mailto:contact@cordukfurkanemre.com');
-        }}
-        aria-label={en ? 'Send an email to contact@cordukfurkanemre.com' : 'contact@cordukfurkanemre.com adresine e-posta gönder'}
+        href="https://mail.google.com/mail/?view=cm&fs=1&to=contact%40cordukfurkanemre.com"
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label={en ? 'Compose in Gmail to contact@cordukfurkanemre.com (opens in a new tab)' : 'Gmail’de contact@cordukfurkanemre.com adresine e-posta yaz (yeni sekmede açılır)'}
       >contact@cordukfurkanemre.com <ArrowUpRight/></a>
       <div className="footer-bottom"><span>Furkan Emre Çördük · {new Date().getFullYear()}</span><a href="#top">{en ? 'Back to top' : 'Yukarı'} ↑</a></div>
     </footer>
