@@ -237,6 +237,8 @@ nav a:focus-visible,
   stroke: url(#system-gradient);
   stroke-width: 1.5;
   stroke-linecap: round;
+  stroke-dasharray: 2 10;
+  opacity: .82;
 }
 .flow-signal {
   fill: #c7ffb0;
