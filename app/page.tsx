@@ -75,7 +75,20 @@ export default function Home() {
         <p className="lead">{en ? 'I enjoy exploring ideas, designing them and turning them into working products. I work with web technologies and continue building my own projects.' : 'Fikirleri araştırmayı, tasarlamayı ve gerçek bir ürüne dönüştürmeyi seviyorum. Web teknolojileriyle çalışıyor, kendi projelerimi geliştirmeye devam ediyorum.'}</p>
         <a className="discover" href="#hakkimda"><ArrowDown size={18}/> {en ? 'Discover more' : 'Devamı'}</a>
       </div>
-      <div className="hero-object" aria-hidden="true"><div className="core">E</div><span className="orbit one"/><span className="orbit two"/><span className="orbit three"/></div>
+      <div className="hero-object" aria-hidden="true">
+        <svg className="system-map" viewBox="0 0 500 500" fill="none">
+          <path className="system-line line-a" d="M92 154 C164 88 229 121 264 211"/>
+          <path className="system-line line-b" d="M264 211 C307 149 381 164 412 236"/>
+          <path className="system-line line-c" d="M264 211 C229 284 272 351 359 373"/>
+          <path className="system-line line-d" d="M92 154 C109 276 190 342 359 373"/>
+          <path className="system-line line-e" d="M412 236 C394 294 385 337 359 373"/>
+        </svg>
+        <span className="system-node node-idea"><i/>{en ? 'idea' : 'fikir'}</span>
+        <span className="system-node node-design"><i/>{en ? 'design' : 'tasarım'}</span>
+        <span className="system-node node-code"><i/>{en ? 'code' : 'kod'}</span>
+        <span className="system-node node-product"><i/>{en ? 'product' : 'ürün'}</span>
+        <span className="system-pulse"/>
+      </div>
       <p className="side-note">{en ? <>Small ideas can become<br/>meaningful products.</> : <>Küçük fikirler<br/>iyi ürünlere dönüşebilir.</>}</p>
     </section>
 
