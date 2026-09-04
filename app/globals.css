@@ -270,17 +270,6 @@ nav a:focus-visible,
 .node-design { left: 46%; top: 36%; animation-delay: -1.4s; }
 .node-code { right: 2%; top: 42%; animation-delay: -2.8s; }
 .node-product { right: 13%; bottom: 18%; animation-delay: -4s; }
-.system-pulse {
-  position: absolute;
-  left: 51.5%;
-  top: 41%;
-  width: 10px;
-  height: 10px;
-  border-radius: 50%;
-  background: #fff;
-  box-shadow: 0 0 0 0 rgba(142, 230, 107, 0.5);
-  animation: system-pulse 2.4s ease-out infinite;
-}
 .side-note {
   position: absolute;
   right: max(32px, calc((100vw - 1320px) /2));
@@ -668,9 +657,6 @@ footer h2 em {
 }
 @keyframes system-breathe {
   50% { transform: scale(1.12); opacity: 0.7; }
-}
-@keyframes system-pulse {
-  70%, 100% { box-shadow: 0 0 0 34px rgba(142, 230, 107, 0); }
 }
 @media (max-width: 800px) {
   header {

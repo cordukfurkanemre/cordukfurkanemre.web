@@ -89,7 +89,6 @@ export default function Home() {
         <span className="system-node node-design"><i/>{en ? 'design' : 'tasarım'}</span>
         <span className="system-node node-code"><i/>{en ? 'code' : 'kod'}</span>
         <span className="system-node node-product"><i/>{en ? 'product' : 'ürün'}</span>
-        <span className="system-pulse"/>
       </div>
       <p className="side-note">{en ? <>Small ideas can become<br/>meaningful products.</> : <>Küçük fikirler<br/>iyi ürünlere dönüşebilir.</>}</p>
     </section>
