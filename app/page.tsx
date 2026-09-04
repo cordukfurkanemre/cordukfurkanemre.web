@@ -95,8 +95,12 @@ export default function Home() {
 
     <section className="about" id="hakkimda">
       <p className="section-no reveal">01 — {en ? 'About' : 'Hakkımda'}</p>
+      <div className="about-gallery reveal">
+        <figure><img src="/about-01.jpg" alt={en ? 'Emre outdoors' : 'Emre açık havada'} /></figure>
+        <figure><img src="/about-02.jpg" alt={en ? 'Emre beneath a cloudy sky' : 'Emre bulutlu bir gökyüzünün altında'} /></figure>
+        <figure><img src="/about-03.jpg" alt={en ? 'Emre in a canyon' : 'Emre bir kanyonda'} /></figure>
+      </div>
       <div className="about-grid">
-        <h2 className="reveal">{en ? 'I grew up with computers and found my path in software.' : 'Bilgisayarlarla büyüdüm, yolumu yazılımda buldum.'}</h2>
         <div className="about-copy reveal">{en ? <><p>I have been surrounded by computers since childhood. Spending time with them, taking things apart and learning something new always felt natural to me. Choosing software was not a sudden decision; it became the natural continuation of what I had always wanted to do.</p><p>My time at SellerRunning placed me inside a real team and product process. What I learned there still shapes how I approach my own projects today.</p><p>I still consider myself at the beginning of the journey. That is why this site is both an archive of completed work and a record of what I learn and build over time.</p></> : <><p>Küçüklüğümden beri bilgisayarların içinde büyüdüm. Onlarla uzun süre vakit geçirmek, kurcalamak ve yeni şeyler öğrenmek hayatımın doğal bir parçasıydı. Bu yüzden kendime bir meslek seçerken yazılım benim için sonradan verilmiş bir karar değil, her zaman yapmak istediğim şeyin doğal devamı oldu.</p><p>SellerRunning’de çalıştığım dönem, gerçek bir ekibin ve ürün sürecinin içinde yer almamı sağladı. Orada edindiğim deneyim bugün kendi projelerime yaklaşımımı da şekillendiriyor.</p><p>Henüz yolun başında sayılırım. Bu yüzden bu site bitmiş işlerin arşivi kadar, öğrendiklerimin ve zaman içinde geliştirdiklerimin de kaydı.</p></>}</div>
       </div>
       <div className="currently reveal"><span>{en ? 'Currently' : 'Şu sıralar'}</span><p>{en ? 'I’m working on product development, web technologies and how thoughtful interfaces are built.' : 'Ürün geliştirme, web teknolojileri ve iyi arayüzlerin nasıl kurulduğu üzerine çalışıyorum.'}</p><i>{en ? 'In progress' : 'Devam ediyor'}</i></div>

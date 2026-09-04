@@ -290,22 +290,48 @@ nav a:focus-visible,
   color: #88857f;
 }
 .about-grid {
-  display: grid;
-  grid-template-columns: 1.1fr 0.7fr;
-  gap: 10vw;
-  margin: 65px 0 110px;
-}
-.about h2 {
-  margin: 0;
-  font-size: clamp(3rem, 6.5vw, 6.5rem);
-  line-height: 0.98;
-  letter-spacing: -0.065em;
-  font-weight: 500;
+  margin: 70px 0 110px;
 }
 .about-copy {
+  max-width: 760px;
+  margin-left: auto;
   color: #a9a69e;
   font-size: 1.16rem;
   line-height: 1.7;
+}
+.about-gallery {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 14px;
+  margin-top: 58px;
+  overflow: hidden;
+}
+.about-gallery figure {
+  position: relative;
+  height: clamp(320px, 39vw, 520px);
+  margin: 0;
+  overflow: hidden;
+  border-radius: 18px;
+  background: #102d21;
+}
+.about-gallery figure:nth-child(2) {
+  transform: translateY(24px);
+}
+.about-gallery img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+  object-position: center;
+  filter: saturate(0.84) contrast(1.04);
+  transition: transform 0.8s cubic-bezier(0.2, 0.8, 0.2, 1), filter 0.4s ease;
+}
+.about-gallery figure:first-child img {
+  object-position: center 62%;
+}
+.about-gallery figure:hover img {
+  transform: scale(1.035);
+  filter: saturate(1) contrast(1);
 }
 .about-copy p:first-child {
   color: var(--paper);
@@ -714,7 +740,18 @@ footer h2 em {
     grid-template-columns: 1fr;
   }
   .about-grid {
-    gap: 35px;
+    margin-top: 48px;
+  }
+  .about-gallery {
+    gap: 8px;
+    margin-top: 38px;
+  }
+  .about-gallery figure {
+    height: 48vw;
+    border-radius: 10px;
+  }
+  .about-gallery figure:nth-child(2) {
+    transform: translateY(12px);
   }
   .currently {
     grid-template-columns: 1fr;
