@@ -234,11 +234,12 @@ nav a:focus-visible,
   overflow: visible;
 }
 .system-line {
-  stroke: url(#system-gradient);
-  stroke-width: 1.5;
+  stroke: #4fa56b;
+  stroke-width: 2;
   stroke-linecap: round;
-  stroke-dasharray: 2 10;
-  opacity: .82;
+  stroke-dasharray: 1 9;
+  opacity: .72;
+  vector-effect: non-scaling-stroke;
 }
 .flow-signal {
   fill: #c7ffb0;
