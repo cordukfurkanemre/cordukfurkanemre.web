@@ -71,8 +71,8 @@ export default function Home() {
     <section className="about" id="hakkimda">
       <p className="section-no reveal">01 — Hakkımda</p>
       <div className="about-grid">
-        <h2 className="reveal">Bir şeyleri sadece kullanmak değil, nasıl çalıştığını anlamak istiyorum.</h2>
-        <div className="about-copy reveal"><p>Yazılım geliştirirken hem kullanıcının gördüğü arayüzle hem de arka plandaki sistemle ilgileniyorum. Temiz, anlaşılır ve gerçekten işe yarayan ürünler ortaya çıkarmak benim için en keyifli kısım.</p><p>Henüz yolun başında sayılırım. Bu yüzden bu site bitmiş işlerin arşivi kadar, öğrendiklerimin ve zaman içinde geliştirdiklerimin de kaydı.</p></div>
+        <h2 className="reveal">Merak ederek başladım, üreterek devam ediyorum.</h2>
+        <div className="about-copy reveal"><p>Yazılıma bir şeylerin nasıl çalıştığını merak ederek girdim. Zamanla sadece kod yazmanın değil, bir fikri düşünüp tasarlamanın ve çalışan bir ürüne dönüştürmenin beni daha çok heyecanlandırdığını fark ettim.</p><p>SellerRunning’de çalıştığım dönem, gerçek bir ekibin ve ürün sürecinin içinde yer almamı sağladı. Orada edindiğim deneyim bugün kendi projelerime yaklaşımımı da şekillendiriyor.</p><p>Henüz yolun başında sayılırım. Bu yüzden bu site bitmiş işlerin arşivi kadar, öğrendiklerimin ve zaman içinde geliştirdiklerimin de kaydı.</p></div>
       </div>
       <div className="currently reveal"><span>Şu sıralar</span><p>Ürün geliştirme, web teknolojileri ve iyi arayüzlerin nasıl kurulduğu üzerine çalışıyorum.</p><i>Devam ediyor</i></div>
     </section>
@@ -88,7 +88,11 @@ export default function Home() {
       <div className="bave-copy">
         <p className="section-no reveal">02 — Organizasyon</p>
         <h2 className="reveal">Bave Software</h2>
-        <p className="reveal">Projelerimi tek bir isim altında geliştirmek, farklı fikirleri denemek ve zamanla daha kapsamlı ürünlere dönüştürmek için oluşturduğum bağımsız bir yazılım organizasyonu.</p>
+        <p className="reveal">Bave Software, aklımdaki fikirleri yalnızca birer deneme olarak bırakmamak için kurduğum bağımsız yazılım organizasyonu. Burada kendi projelerimi geliştiriyor, öğrendiklerimi gerçek ürünler üzerinde uyguluyorum.</p>
+        <div className="bave-vision reveal">
+          <div><span>Amaç</span><p>Günlük hayatta karşılığı olan, sade ve gerçekten kullanılan dijital ürünler geliştirmek.</p></div>
+          <div><span>Hedef</span><p>Küçük başlayan projeleri zamanla sürdürülebilir ürünlere ve güçlü bir yazılım ekosistemine dönüştürmek.</p></div>
+        </div>
         <div className="bave-meta reveal"><span>Kurucu / Geliştirici</span><span>2026 — Bugün</span></div>
         <a className="bave-link reveal" href="https://bavesoftware.com" target="_blank" rel="noreferrer">Bave Software’e git <ArrowUpRight size={20}/></a>
       </div>
@@ -96,15 +100,22 @@ export default function Home() {
 
     <section className="projects" id="projeler">
       <div className="projects-head reveal"><p className="section-no">03 — Projeler</p><h2>Geliştirdiğim<br/>bazı şeyler.</h2></div>
-      <article className="project reveal">
+      <a className="project reveal" href="https://bavesoftware.com" target="_blank" rel="noreferrer">
         <div className="project-index">001</div>
+        <div className="project-title"><p>Bağımsız yazılım organizasyonu</p><h3>Bave Software</h3></div>
+        <p className="project-description">Fikirlerimi tek çatı altında geliştirdiğim; yeni ürünler denediğim ve uzun vadeli bir üretim kültürü kurmaya çalıştığım yapı.</p>
+        <div className="project-status"><span>Kurucu / Geliştirici</span><span className="bave-status">Aktif</span></div>
+        <ArrowUpRight className="project-arrow"/>
+      </a>
+      <article className="project reveal">
+        <div className="project-index">002</div>
         <div className="project-title"><p>Bave Software altında</p><h3>Martı Pet</h3></div>
         <p className="project-description">Veteriner kliniğinin hizmetlerini, ekibini ve iletişim bilgilerini yalın bir dijital deneyimde bir araya getiren web projesi.</p>
         <div className="project-status"><span>Web geliştirme</span><span className="active-dot">Geliştiriliyor</span></div>
         <ArrowUpRight className="project-arrow"/>
       </article>
       <article className="project muted-project reveal">
-        <div className="project-index">002</div>
+        <div className="project-index">003</div>
         <div className="project-title"><p>Sırada ne var?</p><h3>Yeni fikirler</h3></div>
         <p className="project-description">Araştırdığım, prototiplediğim ve zamanla bu listeye ekleyeceğim yeni ürünler.</p>
         <div className="project-status"><span>Deneyler</span><span>Devam ediyor</span></div>

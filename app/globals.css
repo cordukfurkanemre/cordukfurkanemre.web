@@ -261,6 +261,9 @@ nav a:focus-visible,
 .about-copy p:first-child {
   color: var(--paper);
 }
+.about-copy p {
+  margin: 0 0 1.35em;
+}
 .currently {
   display: grid;
   grid-template-columns: 130px 1fr auto;
@@ -392,6 +395,30 @@ nav a:focus-visible,
   line-height: 1.55;
   color: rgba(255, 255, 255, 0.8);
 }
+.bave-vision {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+  margin-top: 34px;
+}
+.bave-vision div {
+  padding: 20px;
+  background: rgba(145, 104, 244, 0.08);
+  border: 1px solid rgba(174, 138, 255, 0.2);
+  border-radius: 16px;
+}
+.bave-vision span {
+  color: #ae8aff;
+  font-family: monospace;
+  font-size: 0.75rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+.bave-vision p {
+  margin: 12px 0 0;
+  color: rgba(255, 255, 255, 0.72);
+  line-height: 1.55;
+}
 .bave-meta {
   display: flex;
   gap: 25px;
@@ -412,15 +439,18 @@ nav a:focus-visible,
   width: min(100%, 360px);
   margin-top: 32px;
   padding: 17px 20px;
-  border: 1px solid rgba(174, 138, 255, 0.55);
-  background: #9168f4;
+  border: 1px solid rgba(208, 191, 255, 0.48);
+  border-radius: 999px;
+  background: linear-gradient(120deg, #6d43db 0%, #9168f4 52%, #b99cff 100%);
   color: #fff;
   font-size: 0.9rem;
-  transition: background 0.25s ease, transform 0.25s ease;
+  font-weight: 700;
+  box-shadow: 0 16px 42px rgba(109, 67, 219, 0.28), inset 0 1px 0 rgba(255, 255, 255, 0.28);
+  transition: box-shadow 0.25s ease, transform 0.25s ease;
 }
 .bave-link:hover {
-  background: #a985ff;
   transform: translateY(-3px);
+  box-shadow: 0 20px 52px rgba(145, 104, 244, 0.45), inset 0 1px 0 rgba(255, 255, 255, 0.35);
 }
 .projects {
   padding: 150px max(32px, calc((100vw - 1320px) /2));
@@ -480,6 +510,9 @@ nav a:focus-visible,
 }
 .active-dot {
   color: #5e7622;
+}
+.bave-status {
+  color: #7047d5;
 }
 .project-arrow {
   transition: transform 0.3s;
@@ -617,6 +650,9 @@ footer h2 em {
   .bave-mark {
     width: 75vw;
     justify-self: center;
+  }
+  .bave-vision {
+    grid-template-columns: 1fr;
   }
   .projects-head {
     flex-direction: column;
