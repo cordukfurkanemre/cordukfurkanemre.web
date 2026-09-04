@@ -37,25 +37,25 @@ export default function Home() {
 
   return <main ref={page}>
     <header>
-      <a className="logo" href="#top">FÇE<span>.</span></a>
-      <nav><a href="#ben">Ben</a><a href="#projeler">Projeler</a><a href="#iletisim">Selam ver ↗</a></nav>
+      <a className="logo" href="#top">PORTFOLIO<span>/26</span></a>
+      <nav><a href="#ben">Yaklaşım</a><a href="#projeler">Projeler</a><a href="#iletisim">İletişim ↗</a></nav>
     </header>
 
     <section className="intro" id="top">
       <div className="intro-meta"><span>İstanbul, TR</span><span className="available"><i/> Yeni fikirlere açık</span></div>
-      <h1><span className="line">FURKAN</span><span className="line offset">EMRE</span><span className="line outline">ÇÖRDÜK</span></h1>
-      <p className="intro-copy">Kod yazıyorum, arayüzler tasarlıyorum ve aklıma takılan fikirleri <em>çalışan şeylere</em> dönüştürüyorum.</p>
+      <h1><span className="line">FİKİRDEN</span><span className="line offset">ÇALIŞAN</span><span className="line outline">ÜRÜNLERE.</span></h1>
+      <p className="intro-copy">Dijital ürünleri fikir, arayüz ve mühendislik arasında bir bütün olarak ele alıyorum. <em>Sade, kullanışlı ve uzun ömürlü</em> deneyimler üretmeye çalışıyorum.</p>
       <a className="down" href="#ben" aria-label="Aşağı kaydır"><ArrowDown/></a>
       <div className="orb orb-a"/><div className="orb orb-b"/><div className="cursor-ring"/>
     </section>
 
-    <div className="marquee" aria-hidden="true"><div>GELİŞTİRİCİ • TASARIM MERAKLISI • PROBLEM ÇÖZÜCÜ • FİKİR ÜRETİCİ • GELİŞTİRİCİ • TASARIM MERAKLISI •&nbsp;</div></div>
+    <div className="marquee" aria-hidden="true"><div>TASARIM • MÜHENDİSLİK • ÜRÜN • DENEYİM • TASARIM • MÜHENDİSLİK • ÜRÜN • DENEYİM •&nbsp;</div></div>
 
     <section className="bio" id="ben">
-      <p className="label reveal">01 / Ben kimim?</p>
+      <p className="label reveal">01 / Yaklaşım</p>
       <div className="bio-grid">
-        <h2 className="reveal">Ekranın iki tarafını da seviyorum.</h2>
-        <div className="bio-text reveal"><p>Ben Furkan. Bir ürünün nasıl göründüğü kadar, nasıl hissettirdiği ve arka planda nasıl çalıştığıyla da ilgileniyorum.</p><p>Merakım genellikle küçük bir “ya şöyle olsaydı?” sorusuyla başlıyor. Sonra araştırma, taslaklar ve bolca kod geliyor.</p></div>
+        <h2 className="reveal">Doğru sorudan, sade bir sisteme.</h2>
+        <div className="bio-text reveal"><p>Bir ürünün nasıl göründüğü kadar, nasıl hissettirdiği ve arka planda nasıl çalıştığıyla da ilgileniyorum.</p><p>Süreç genellikle küçük bir “ya şöyle olsaydı?” sorusuyla başlıyor. Araştırma, taslaklar ve kodla; kullanılabilir bir sonuca dönüşüyor.</p></div>
       </div>
       <div className="principles">
         <article className="reveal"><span>01</span><h3>Az ama öz</h3><p>Gereksiz olanı atıp esas fikri görünür kılmak.</p></article>
@@ -66,11 +66,11 @@ export default function Home() {
 
     <section className="statement">
       <div className="spin-text" aria-hidden="true"><span>MERAK • ÜRETİM • DENEY • </span><b>+</b></div>
-      <p className="reveal">Teknoloji benim için sadece araç.<br/><strong>Asıl mesele iz bırakan bir şey üretmek.</strong></p>
+      <p className="reveal">Teknoloji yalnızca araç.<br/><strong>Değer, çözdüğü problemde.</strong></p>
     </section>
 
     <section className="work" id="projeler">
-      <div className="work-head reveal"><p className="label">02 / Seçili projeler</p><p>Yaptıklarım da benim bir parçam.</p></div>
+      <div className="work-head reveal"><p className="label">02 / Seçili projeler</p><p>Farklı ihtiyaçlar için tasarlanan, gerçek kullanıma odaklı işler.</p></div>
       {projects.map((project, index) => <article className="work-row reveal" key={project.title}>
         <span>{project.year}</span><div><h3>{project.title}</h3><p>{project.note}</p></div><span>{project.type}</span><ArrowUpRight/>
         <i aria-hidden="true">0{index + 1}</i>
