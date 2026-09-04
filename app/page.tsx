@@ -53,8 +53,8 @@ export default function Home() {
   return <main ref={page}>
     <header>
       <a href="#top" className="signature">emre<span>.</span></a>
-      <nav><a href="#hakkimda">Hakkımda</a><a href="#bave">Bave</a><a href="#projeler">Projeler</a></nav>
-      <a className="hello-link" href="#iletisim">Merhaba de ↗</a>
+      <nav aria-label="Ana menü"><a href="#hakkimda">Hakkımda</a><a href="#bave">Bave</a><a href="#projeler">Projeler</a></nav>
+      <a className="hello-link" href="#iletisim"><span>Merhaba de</span><ArrowUpRight size={16}/></a>
     </header>
 
     <section className="hero" id="top">
