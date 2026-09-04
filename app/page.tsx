@@ -151,7 +151,7 @@ export default function Home() {
     <footer id="iletisim">
       <p className="section-no reveal">04 — {en ? 'Contact' : 'İletişim'}</p>
       <h2 className="reveal">{en ? <>Have an idea?<br/><em>Let’s talk.</em></> : <>Bir fikrin varsa<br/><em>konuşabiliriz.</em></>}</h2>
-      <a className="email reveal" href="mailto:hello@furkanemrecorduk.com">hello@furkanemrecorduk.com <ArrowUpRight/></a>
+      <a className="email reveal" href="mailto:contact@cordukfurkanemre.com">contact@cordukfurkanemre.com <ArrowUpRight/></a>
       <div className="footer-bottom"><span>Furkan Emre Çördük · {new Date().getFullYear()}</span><a href="#top">{en ? 'Back to top' : 'Yukarı'} ↑</a></div>
     </footer>
   </main>;
