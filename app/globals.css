@@ -261,6 +261,8 @@ nav a:hover,
   box-shadow: 0 0 0 5px rgba(142, 230, 107, 0.12);
 }
 .bave {
+  position: relative;
+  overflow: hidden;
   display: grid;
   grid-template-columns: 0.8fr 1.2fr;
   gap: 10vw;
@@ -269,11 +271,41 @@ nav a:hover,
   background: #0b0712;
   color: #fff;
 }
+.particle-field {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+.particle {
+  --push-x: 0px;
+  --push-y: 0px;
+  position: absolute;
+  left: var(--px);
+  top: var(--py);
+  width: var(--size);
+  height: var(--size);
+  border-radius: 50%;
+  background: #a985ff;
+  box-shadow: 0 0 16px rgba(169, 133, 255, 0.7);
+  opacity: 0.5;
+  transform: translate(var(--push-x), var(--push-y));
+  transition: transform 0.22s cubic-bezier(0.2, 0.8, 0.2, 1);
+  animation: particle-drift 7s ease-in-out var(--delay) infinite alternate;
+}
+.particle:nth-child(3n) {
+  background: #6d43db;
+  opacity: 0.35;
+}
+.particle:nth-child(5n) {
+  background: #d0bfff;
+  opacity: 0.65;
+}
 .bave .section-no {
   color: rgba(255, 255, 255, 0.6);
 }
 .bave-mark {
   position: relative;
+  z-index: 2;
   width: min(35vw, 420px);
   aspect-ratio: 1;
   display: grid;
@@ -281,6 +313,10 @@ nav a:hover,
   border: 1px solid rgba(255, 255, 255, 0.45);
   border-radius: 50%;
   animation: float 5s ease-in-out infinite;
+}
+.bave-copy {
+  position: relative;
+  z-index: 2;
 }
 .bave-mark span {
   font-size: clamp(7rem, 14vw, 13rem);
@@ -489,6 +525,10 @@ footer h2 em {
   50% {
     transform: translateY(-14px);
   }
+}
+@keyframes particle-drift {
+  from { margin: -7px 0 0 -4px; }
+  to { margin: 8px 0 0 6px; }
 }
 @media (max-width: 800px) {
   header {

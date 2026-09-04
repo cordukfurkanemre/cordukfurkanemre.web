@@ -1,6 +1,7 @@
 'use client';
 
 import { useEffect, useRef } from 'react';
+import type { CSSProperties, PointerEvent as ReactPointerEvent } from 'react';
 import { ArrowDown, ArrowUpRight } from 'lucide-react';
 
 export default function Home() {
@@ -24,6 +25,30 @@ export default function Home() {
     window.addEventListener('mousemove', pointer, { passive: true });
     return () => { observer.disconnect(); window.removeEventListener('mousemove', pointer); cancelAnimationFrame(frame); };
   }, []);
+
+  const moveParticles = (event: ReactPointerEvent<HTMLElement>) => {
+    event.currentTarget.querySelectorAll<HTMLElement>('.particle').forEach(dot => {
+      const rect = dot.getBoundingClientRect();
+      const dx = rect.left + rect.width / 2 - event.clientX;
+      const dy = rect.top + rect.height / 2 - event.clientY;
+      const distance = Math.hypot(dx, dy);
+      if (distance < 150) {
+        const force = (150 - distance) / 150;
+        dot.style.setProperty('--push-x', `${(dx / Math.max(distance, 1)) * force * 85}px`);
+        dot.style.setProperty('--push-y', `${(dy / Math.max(distance, 1)) * force * 85}px`);
+      } else {
+        dot.style.setProperty('--push-x', '0px');
+        dot.style.setProperty('--push-y', '0px');
+      }
+    });
+  };
+
+  const resetParticles = (event: ReactPointerEvent<HTMLElement>) => {
+    event.currentTarget.querySelectorAll<HTMLElement>('.particle').forEach(dot => {
+      dot.style.setProperty('--push-x', '0px');
+      dot.style.setProperty('--push-y', '0px');
+    });
+  };
 
   return <main ref={page}>
     <header>
@@ -52,7 +77,10 @@ export default function Home() {
       <div className="currently reveal"><span>Şu sıralar</span><p>Ürün geliştirme, web teknolojileri ve iyi arayüzlerin nasıl kurulduğu üzerine çalışıyorum.</p><i>Devam ediyor</i></div>
     </section>
 
-    <section className="bave" id="bave">
+    <section className="bave" id="bave" onPointerMove={moveParticles} onPointerLeave={resetParticles}>
+      <div className="particle-field" aria-hidden="true">
+        {Array.from({ length: 30 }, (_, index) => <span className="particle" key={index} style={{ '--px': `${(index * 37) % 96}%`, '--py': `${(index * 61) % 94}%`, '--size': `${4 + (index % 4) * 2}px`, '--delay': `${-(index % 9)}s` } as CSSProperties}/>)}
+      </div>
       <div className="bave-mark reveal"><span>B</span><i/><i/><i/></div>
       <div className="bave-copy">
         <p className="section-no reveal">02 — Organizasyon</p>
