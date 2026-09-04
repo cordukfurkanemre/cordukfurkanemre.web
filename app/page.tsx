@@ -3,11 +3,6 @@
 import { useEffect, useRef } from 'react';
 import { ArrowDown, ArrowUpRight } from 'lucide-react';
 
-const projects = [
-  { year: '2026', title: 'Martı Pet', type: 'Dijital deneyim', note: 'Veteriner kliniği için sakin, güven veren ve kolay kullanılan bir web deneyimi.' },
-  { year: '2026', title: 'Bave', type: 'Ürün geliştirme', note: 'İşletme operasyonlarını tek merkezde birleştiren ölçeklenebilir platform.' },
-];
-
 export default function Home() {
   const page = useRef<HTMLElement>(null);
 
@@ -15,73 +10,81 @@ export default function Home() {
     const root = page.current;
     if (!root) return;
     let frame = 0;
-    const update = (event?: MouseEvent) => {
+    const pointer = (event: MouseEvent) => {
       cancelAnimationFrame(frame);
       frame = requestAnimationFrame(() => {
-        const x = event ? event.clientX / window.innerWidth - .5 : 0;
-        const y = event ? event.clientY / window.innerHeight - .5 : 0;
-        root.style.setProperty('--mx', `${x}`);
-        root.style.setProperty('--my', `${y}`);
-        root.style.setProperty('--scroll', `${window.scrollY}`);
+        root.style.setProperty('--x', `${event.clientX / innerWidth - .5}`);
+        root.style.setProperty('--y', `${event.clientY / innerHeight - .5}`);
       });
     };
-    const reveal = new IntersectionObserver((entries) => entries.forEach(entry => {
-      if (entry.isIntersecting) entry.target.classList.add('is-visible');
-    }), { threshold: .14 });
-    root.querySelectorAll('.reveal').forEach(el => reveal.observe(el));
-    window.addEventListener('mousemove', update, { passive: true });
-    window.addEventListener('scroll', () => update(), { passive: true });
-    update();
-    return () => { reveal.disconnect(); window.removeEventListener('mousemove', update); cancelAnimationFrame(frame); };
+    const observer = new IntersectionObserver(entries => entries.forEach(entry => {
+      if (entry.isIntersecting) entry.target.classList.add('visible');
+    }), { threshold: .15 });
+    root.querySelectorAll('.reveal').forEach(element => observer.observe(element));
+    window.addEventListener('mousemove', pointer, { passive: true });
+    return () => { observer.disconnect(); window.removeEventListener('mousemove', pointer); cancelAnimationFrame(frame); };
   }, []);
 
   return <main ref={page}>
     <header>
-      <a className="logo" href="#top">PORTFOLIO<span>/26</span></a>
-      <nav><a href="#ben">Yaklaşım</a><a href="#projeler">Projeler</a><a href="#iletisim">İletişim ↗</a></nav>
+      <a href="#top" className="signature">emre<span>.</span></a>
+      <nav><a href="#hakkimda">Hakkımda</a><a href="#bave">Bave</a><a href="#projeler">Projeler</a></nav>
+      <a className="hello-link" href="#iletisim">Merhaba de ↗</a>
     </header>
 
-    <section className="intro" id="top">
-      <div className="intro-meta"><span>İstanbul, TR</span><span className="available"><i/> Yeni fikirlere açık</span></div>
-      <h1><span className="line">FİKİRDEN</span><span className="line offset">ÇALIŞAN</span><span className="line outline">ÜRÜNLERE.</span></h1>
-      <p className="intro-copy">Dijital ürünleri fikir, arayüz ve mühendislik arasında bir bütün olarak ele alıyorum. <em>Sade, kullanışlı ve uzun ömürlü</em> deneyimler üretmeye çalışıyorum.</p>
-      <a className="down" href="#ben" aria-label="Aşağı kaydır"><ArrowDown/></a>
-      <div className="orb orb-a"/><div className="orb orb-b"/><div className="cursor-ring"/>
-    </section>
-
-    <div className="marquee" aria-hidden="true"><div>TASARIM • MÜHENDİSLİK • ÜRÜN • DENEYİM • TASARIM • MÜHENDİSLİK • ÜRÜN • DENEYİM •&nbsp;</div></div>
-
-    <section className="bio" id="ben">
-      <p className="label reveal">01 / Yaklaşım</p>
-      <div className="bio-grid">
-        <h2 className="reveal">Doğru sorudan, sade bir sisteme.</h2>
-        <div className="bio-text reveal"><p>Bir ürünün nasıl göründüğü kadar, nasıl hissettirdiği ve arka planda nasıl çalıştığıyla da ilgileniyorum.</p><p>Süreç genellikle küçük bir “ya şöyle olsaydı?” sorusuyla başlıyor. Araştırma, taslaklar ve kodla; kullanılabilir bir sonuca dönüşüyor.</p></div>
+    <section className="hero" id="top">
+      <div className="hero-copy">
+        <p className="eyebrow">Yazılım geliştirici · İstanbul</p>
+        <h1>Merhaba,<br/>ben <em>Emre.</em></h1>
+        <p className="lead">Fikirleri araştırmayı, tasarlamayı ve gerçek bir ürüne dönüştürmeyi seviyorum. Web teknolojileriyle çalışıyor, kendi projelerimi geliştirmeye devam ediyorum.</p>
+        <a className="discover" href="#hakkimda"><ArrowDown size={18}/> Devamı</a>
       </div>
-      <div className="principles">
-        <article className="reveal"><span>01</span><h3>Az ama öz</h3><p>Gereksiz olanı atıp esas fikri görünür kılmak.</p></article>
-        <article className="reveal"><span>02</span><h3>Detaylara takıl</h3><p>Küçük bir geçişin bile deneyimi değiştirdiğine inanmak.</p></article>
-        <article className="reveal"><span>03</span><h3>Gerçekten çalışsın</h3><p>Güzel görünen kadar sağlam ve sürdürülebilir sistemler kurmak.</p></article>
+      <div className="hero-object" aria-hidden="true"><div className="core">E</div><span className="orbit one"/><span className="orbit two"/><span className="orbit three"/></div>
+      <p className="side-note">Küçük fikirler<br/>iyi ürünlere dönüşebilir.</p>
+    </section>
+
+    <section className="about" id="hakkimda">
+      <p className="section-no reveal">01 — Hakkımda</p>
+      <div className="about-grid">
+        <h2 className="reveal">Bir şeyleri sadece kullanmak değil, nasıl çalıştığını anlamak istiyorum.</h2>
+        <div className="about-copy reveal"><p>Yazılım geliştirirken hem kullanıcının gördüğü arayüzle hem de arka plandaki sistemle ilgileniyorum. Temiz, anlaşılır ve gerçekten işe yarayan ürünler ortaya çıkarmak benim için en keyifli kısım.</p><p>Henüz yolun başında sayılırım. Bu yüzden bu site bitmiş işlerin arşivi kadar, öğrendiklerimin ve zaman içinde geliştirdiklerimin de kaydı.</p></div>
+      </div>
+      <div className="currently reveal"><span>Şu sıralar</span><p>Ürün geliştirme, web teknolojileri ve iyi arayüzlerin nasıl kurulduğu üzerine çalışıyorum.</p><i>Devam ediyor</i></div>
+    </section>
+
+    <section className="bave" id="bave">
+      <div className="bave-mark reveal"><span>B</span><i/><i/><i/></div>
+      <div className="bave-copy">
+        <p className="section-no reveal">02 — Organizasyon</p>
+        <h2 className="reveal">Bave Software</h2>
+        <p className="reveal">Projelerimi tek bir isim altında geliştirmek, farklı fikirleri denemek ve zamanla daha kapsamlı ürünlere dönüştürmek için oluşturduğum bağımsız bir yazılım organizasyonu.</p>
+        <div className="bave-meta reveal"><span>Kurucu / Geliştirici</span><span>2026 — Bugün</span></div>
       </div>
     </section>
 
-    <section className="statement">
-      <div className="spin-text" aria-hidden="true"><span>MERAK • ÜRETİM • DENEY • </span><b>+</b></div>
-      <p className="reveal">Teknoloji yalnızca araç.<br/><strong>Değer, çözdüğü problemde.</strong></p>
-    </section>
-
-    <section className="work" id="projeler">
-      <div className="work-head reveal"><p className="label">02 / Seçili projeler</p><p>Farklı ihtiyaçlar için tasarlanan, gerçek kullanıma odaklı işler.</p></div>
-      {projects.map((project, index) => <article className="work-row reveal" key={project.title}>
-        <span>{project.year}</span><div><h3>{project.title}</h3><p>{project.note}</p></div><span>{project.type}</span><ArrowUpRight/>
-        <i aria-hidden="true">0{index + 1}</i>
-      </article>)}
+    <section className="projects" id="projeler">
+      <div className="projects-head reveal"><p className="section-no">03 — Projeler</p><h2>Geliştirdiğim<br/>bazı şeyler.</h2></div>
+      <article className="project reveal">
+        <div className="project-index">001</div>
+        <div className="project-title"><p>Bave Software altında</p><h3>Martı Pet</h3></div>
+        <p className="project-description">Veteriner kliniğinin hizmetlerini, ekibini ve iletişim bilgilerini yalın bir dijital deneyimde bir araya getiren web projesi.</p>
+        <div className="project-status"><span>Web geliştirme</span><span className="active-dot">Geliştiriliyor</span></div>
+        <ArrowUpRight className="project-arrow"/>
+      </article>
+      <article className="project muted-project reveal">
+        <div className="project-index">002</div>
+        <div className="project-title"><p>Sırada ne var?</p><h3>Yeni fikirler</h3></div>
+        <p className="project-description">Araştırdığım, prototiplediğim ve zamanla bu listeye ekleyeceğim yeni ürünler.</p>
+        <div className="project-status"><span>Deneyler</span><span>Devam ediyor</span></div>
+        <ArrowUpRight className="project-arrow"/>
+      </article>
     </section>
 
     <footer id="iletisim">
-      <p className="label reveal">03 / Tanışalım</p>
-      <h2 className="reveal">Bir kahve,<br/>bir fikir?</h2>
-      <a className="mail reveal" href="mailto:hello@furkanemrecorduk.com">hello@furkanemrecorduk.com <ArrowUpRight/></a>
-      <div className="footer-line"><span>© {new Date().getFullYear()} Furkan Emre Çördük</span><a href="https://github.com/cordukfurkanemre" target="_blank" rel="noreferrer">GitHub ↗</a><a href="#top">Yukarı ↑</a></div>
+      <p className="section-no reveal">04 — İletişim</p>
+      <h2 className="reveal">Bir fikrin varsa<br/><em>konuşabiliriz.</em></h2>
+      <a className="email reveal" href="mailto:hello@furkanemrecorduk.com">hello@furkanemrecorduk.com <ArrowUpRight/></a>
+      <div className="footer-bottom"><span>Furkan Emre Çördük · {new Date().getFullYear()}</span><a href="https://github.com/cordukfurkanemre" target="_blank" rel="noreferrer">GitHub ↗</a><a href="#top">Yukarı ↑</a></div>
     </footer>
   </main>;
 }

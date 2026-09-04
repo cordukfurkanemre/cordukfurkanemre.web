@@ -3,7 +3,7 @@ import './globals.css';
 
 export const metadata: Metadata = {
   title: 'Furkan Emre Çördük | Yazılım Geliştirici',
-  description: 'Furkan Emre Çördük’ün seçili dijital ürün ve yazılım çalışmaları.',
+  description: 'Emre’nin geliştirdiği projeler, Bave Software ve devam eden yazılım yolculuğu.',
 };
 
 export default function RootLayout({
