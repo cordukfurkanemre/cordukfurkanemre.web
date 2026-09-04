@@ -59,6 +59,7 @@ export default function Home() {
         <h2 className="reveal">Bave Software</h2>
         <p className="reveal">Projelerimi tek bir isim altında geliştirmek, farklı fikirleri denemek ve zamanla daha kapsamlı ürünlere dönüştürmek için oluşturduğum bağımsız bir yazılım organizasyonu.</p>
         <div className="bave-meta reveal"><span>Kurucu / Geliştirici</span><span>2026 — Bugün</span></div>
+        <a className="bave-link reveal" href="https://bavesoftware.com" target="_blank" rel="noreferrer">Bave Software’e git <ArrowUpRight size={20}/></a>
       </div>
     </section>
 
