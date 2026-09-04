@@ -70,7 +70,8 @@ nav {
 }
 nav a,
 .hello-link,
-.social-link {
+.social-link,
+.lang-toggle {
   transition: background-color 0.2s, color 0.2s, border-color 0.2s, transform 0.2s;
 }
 nav a {
@@ -82,6 +83,22 @@ nav a {
   display: flex;
   align-items: center;
   gap: 8px;
+}
+.lang-toggle {
+  width: 38px;
+  height: 38px;
+  padding: 0;
+  color: var(--paper);
+  background: rgba(241, 245, 238, 0.08);
+  border: 1px solid rgba(241, 245, 238, 0.2);
+  border-radius: 50%;
+  font: 700 0.68rem/1 monospace;
+  cursor: pointer;
+}
+.lang-toggle:hover {
+  color: var(--orange);
+  border-color: rgba(142, 230, 107, 0.55);
+  transform: translateY(-2px);
 }
 .social-link {
   width: 34px;
@@ -130,7 +147,8 @@ nav a:hover {
 nav a:focus-visible,
 .signature:focus-visible,
 .hello-link:focus-visible,
-.social-link:focus-visible {
+.social-link:focus-visible,
+.lang-toggle:focus-visible {
   outline: 2px solid var(--orange);
   outline-offset: 3px;
 }
@@ -649,12 +667,6 @@ footer h2 em {
     height: 40px;
   }
   .hello-link {
-    width: 40px;
-    height: 40px;
-    justify-content: center;
-    padding: 0;
-  }
-  .hello-link span {
     display: none;
   }
   .hero {
