@@ -2,7 +2,7 @@
 
 import { useEffect, useRef, useState } from 'react';
 import type { CSSProperties, PointerEvent as ReactPointerEvent } from 'react';
-import { ArrowDown, ArrowUpRight } from 'lucide-react';
+import { ArrowDown, ArrowUpRight, Languages } from 'lucide-react';
 
 export default function Home() {
   const page = useRef<HTMLElement>(null);
@@ -63,7 +63,7 @@ export default function Home() {
       <div className="header-actions">
         <a className="social-link github-link" href="https://github.com/cordukfurkanemre" target="_blank" rel="noreferrer" aria-label={en ? 'My GitHub profile' : 'GitHub profilim'}><img src="/github.svg" alt="" /></a>
         <a className="social-link linkedin-link" href="https://www.linkedin.com/in/cordukfurkanemre/" target="_blank" rel="noreferrer" aria-label={en ? 'My LinkedIn profile' : 'LinkedIn profilim'}><img src="/linkedin.svg" alt="" /></a>
-        <button className="lang-toggle" type="button" onClick={() => setLanguage(en ? 'tr' : 'en')} aria-label={en ? 'Türkçeye geç' : 'Switch to English'}>{en ? 'TR' : 'EN'}</button>
+        <button className="lang-toggle" type="button" onClick={() => setLanguage(en ? 'tr' : 'en')} aria-label={en ? 'Türkçeye geç' : 'Switch to English'}><Languages size={15}/><span>{en ? 'Türkçe' : 'English'}</span></button>
         <a className="hello-link" href="#iletisim"><span>{en ? 'Say hello' : 'Merhaba de'}</span><ArrowUpRight size={16}/></a>
       </div>
     </header>

@@ -86,14 +86,18 @@ nav a {
   gap: 8px;
 }
 .lang-toggle {
-  width: 38px;
-  height: 38px;
-  padding: 0;
+  height: 40px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 0 13px;
   color: var(--paper);
-  background: rgba(241, 245, 238, 0.08);
-  border: 1px solid rgba(241, 245, 238, 0.2);
-  border-radius: 50%;
-  font: 700 0.68rem/1 monospace;
+  background: rgba(7, 27, 18, 0.58);
+  border: 1px solid rgba(241, 245, 238, 0.16);
+  border-radius: 999px;
+  box-shadow: 0 10px 26px rgba(0, 0, 0, 0.12);
+  backdrop-filter: blur(16px);
+  font: 600 0.75rem/1 Arial, Helvetica, sans-serif;
   cursor: pointer;
 }
 .lang-toggle:hover {
@@ -668,6 +672,14 @@ footer h2 em {
     height: 40px;
   }
   .hello-link {
+    display: none;
+  }
+  .lang-toggle {
+    width: 38px;
+    padding: 0;
+    justify-content: center;
+  }
+  .lang-toggle span {
     display: none;
   }
   .hero {
