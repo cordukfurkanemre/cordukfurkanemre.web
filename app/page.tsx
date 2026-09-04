@@ -71,8 +71,8 @@ export default function Home() {
     <section className="about" id="hakkimda">
       <p className="section-no reveal">01 — Hakkımda</p>
       <div className="about-grid">
-        <h2 className="reveal">Merak ederek başladım, üreterek devam ediyorum.</h2>
-        <div className="about-copy reveal"><p>Yazılıma bir şeylerin nasıl çalıştığını merak ederek girdim. Zamanla sadece kod yazmanın değil, bir fikri düşünüp tasarlamanın ve çalışan bir ürüne dönüştürmenin beni daha çok heyecanlandırdığını fark ettim.</p><p>SellerRunning’de çalıştığım dönem, gerçek bir ekibin ve ürün sürecinin içinde yer almamı sağladı. Orada edindiğim deneyim bugün kendi projelerime yaklaşımımı da şekillendiriyor.</p><p>Henüz yolun başında sayılırım. Bu yüzden bu site bitmiş işlerin arşivi kadar, öğrendiklerimin ve zaman içinde geliştirdiklerimin de kaydı.</p></div>
+        <h2 className="reveal">Bilgisayarlarla büyüdüm, yolumu yazılımda buldum.</h2>
+        <div className="about-copy reveal"><p>Küçüklüğümden beri bilgisayarların içinde büyüdüm. Onlarla uzun süre vakit geçirmek, kurcalamak ve yeni şeyler öğrenmek hayatımın doğal bir parçasıydı. Bu yüzden kendime bir meslek seçerken yazılım benim için sonradan verilmiş bir karar değil, her zaman yapmak istediğim şeyin doğal devamı oldu.</p><p>SellerRunning’de çalıştığım dönem, gerçek bir ekibin ve ürün sürecinin içinde yer almamı sağladı. Orada edindiğim deneyim bugün kendi projelerime yaklaşımımı da şekillendiriyor.</p><p>Henüz yolun başında sayılırım. Bu yüzden bu site bitmiş işlerin arşivi kadar, öğrendiklerimin ve zaman içinde geliştirdiklerimin de kaydı.</p></div>
       </div>
       <div className="currently reveal"><span>Şu sıralar</span><p>Ürün geliştirme, web teknolojileri ve iyi arayüzlerin nasıl kurulduğu üzerine çalışıyorum.</p><i>Devam ediyor</i></div>
     </section>
