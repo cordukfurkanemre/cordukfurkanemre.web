@@ -5,6 +5,10 @@
   --blue: #247a50;
   --orange: #8ee66b;
   --line: rgba(11, 36, 25, 0.18);
+  --project-bg: #141019;
+  --project-text: #ebe8ed;
+  --project-muted: #aaa2ae;
+  --footer-bg: #24563d;
 }
 * {
   box-sizing: border-box;
@@ -568,6 +572,12 @@ nav a:focus-visible,
 }
 .projects {
   padding: 150px max(32px, calc((100vw - 1320px) /2));
+  background: var(--project-bg);
+  color: var(--project-text);
+  --line: rgba(235, 232, 237, 0.14);
+}
+.projects .section-no {
+  color: #908696;
 }
 .projects-head {
   display: flex;
@@ -596,12 +606,12 @@ nav a:focus-visible,
 }
 .project-index {
   font-family: monospace;
-  color: #8c8982;
+  color: #8f8794;
   font-size: 0.75rem;
 }
 .project-title p {
   margin: 0 0 8px;
-  color: #8c8982;
+  color: #9e95a3;
   font-size: 0.78rem;
 }
 .project-title h3 {
@@ -612,7 +622,7 @@ nav a:focus-visible,
 .project-description {
   max-width: 460px;
   margin: 0;
-  color: #625f59;
+  color: var(--project-muted);
   line-height: 1.55;
 }
 .project-status {
@@ -623,10 +633,10 @@ nav a:focus-visible,
   font-size: 0.72rem;
 }
 .active-dot {
-  color: #5e7622;
+  color: #9ad67b;
 }
 .bave-status {
-  color: #7047d5;
+  color: #b69aff;
 }
 .project-arrow {
   transition: transform 0.3s;
@@ -644,7 +654,7 @@ nav a:focus-visible,
   bottom: 0;
   width: 0;
   height: 2px;
-  background: var(--blue);
+  background: linear-gradient(90deg, #5a956f, #8c6adf);
   transition: width 0.6s cubic-bezier(0.2, 0.8, 0.2, 1);
 }
 .project:hover::after {
@@ -652,11 +662,11 @@ nav a:focus-visible,
 }
 footer {
   padding: 140px max(32px, calc((100vw - 1320px) /2)) 35px;
-  background: #8ee66b;
-  color: var(--ink);
+  background: var(--footer-bg);
+  color: #edf5ef;
 }
 footer .section-no {
-  color: rgba(16, 16, 16, 0.58);
+  color: rgba(237, 245, 239, 0.62);
 }
 footer h2 {
   margin: 60px 0;
@@ -666,15 +676,15 @@ footer h2 {
 }
 footer h2 em {
   font-style: normal;
-  color: var(--paper);
+  color: #a5e487;
 }
 .email {
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 25px 0;
-  border-top: 2px solid var(--ink);
-  border-bottom: 2px solid var(--ink);
+  border-top: 2px solid rgba(237, 245, 239, 0.72);
+  border-bottom: 2px solid rgba(237, 245, 239, 0.72);
   font-size: clamp(1rem, 2.1vw, 1.9rem);
 }
 .footer-bottom {
