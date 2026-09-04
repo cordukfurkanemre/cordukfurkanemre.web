@@ -81,7 +81,10 @@ export default function Home() {
       <div className="particle-field" aria-hidden="true">
         {Array.from({ length: 30 }, (_, index) => <span className="particle" key={index} style={{ '--px': `${(index * 37) % 96}%`, '--py': `${(index * 61) % 94}%`, '--size': `${4 + (index % 4) * 2}px`, '--delay': `${-(index % 9)}s` } as CSSProperties}/>)}
       </div>
-      <div className="bave-mark reveal"><span>B</span><i/><i/><i/></div>
+      <div className="bave-mark reveal">
+        <img src="/bave-logo.png" alt="Bave Software logosu" />
+        <i/><i/><i/>
+      </div>
       <div className="bave-copy">
         <p className="section-no reveal">02 — Organizasyon</p>
         <h2 className="reveal">Bave Software</h2>
