@@ -154,8 +154,15 @@ export default function Home() {
         <div className="project-status"><span>{en ? 'Web development' : 'Web geliştirme'}</span><span className="active-dot">{en ? 'In development' : 'Geliştiriliyor'}</span></div>
         <ArrowUpRight className="project-arrow"/>
       </article>
-      <article className="project muted-project reveal">
+      <a className="project reveal" href="https://github.com/cordukfurkanemre/sahibinden.com-Dark-theme" target="_blank" rel="noopener noreferrer" aria-label={en ? 'View Sahibinden Dark Theme on GitHub (opens in a new tab)' : 'Sahibinden Koyu Tema projesini GitHub’da incele (yeni sekmede açılır)'}>
         <div className="project-index">003</div>
+        <div className="project-title"><p>{en ? 'Chrome extension · Manifest V3' : 'Chrome eklentisi · Manifest V3'}</p><h3>{en ? 'Sahibinden Dark Theme' : 'Sahibinden Koyu Tema'}</h3></div>
+        <p className="project-description">{en ? 'A dark theme extension I built for sahibinden.com using JavaScript and CSS. It adapts the interface while preserving listing photos, and I continue improving its page compatibility. An independent project, not affiliated with sahibinden.com.' : 'Sahibinden.com için JavaScript ve CSS ile geliştirdiğim koyu tema eklentisi. İlan fotoğraflarını değiştirmeden arayüzü koyulaştırıyor; farklı sayfalardaki uyumluluğunu geliştirmeye devam ediyorum. Sahibinden.com ile resmî bağlantısı olmayan bağımsız bir proje.'}</p>
+        <div className="project-status"><span>{en ? 'View on GitHub' : 'GitHub’da incele'}</span><span className="active-dot">{en ? 'Published · Beta' : 'Yayında · Beta'}</span></div>
+        <ArrowUpRight className="project-arrow"/>
+      </a>
+      <article className="project muted-project reveal">
+        <div className="project-index">004</div>
         <div className="project-title"><p>{en ? 'What’s next?' : 'Sırada ne var?'}</p><h3>{en ? 'New ideas' : 'Yeni fikirler'}</h3></div>
         <p className="project-description">{en ? 'New products I’m researching, prototyping and will add to this list over time.' : 'Araştırdığım, prototiplediğim ve zamanla bu listeye ekleyeceğim yeni ürünler.'}</p>
         <div className="project-status"><span>{en ? 'Experiments' : 'Deneyler'}</span><span>{en ? 'Ongoing' : 'Devam ediyor'}</span></div>
