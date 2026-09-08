@@ -3,9 +3,11 @@
 import { useEffect, useRef, useState } from 'react';
 import type { CSSProperties, PointerEvent as ReactPointerEvent } from 'react';
 import { ArrowDown, ArrowUpRight, Languages } from 'lucide-react';
+import Image from 'next/image';
 
 export default function Home() {
   const page = useRef<HTMLElement>(null);
+  const particleFrame = useRef(0);
   const [language, setLanguage] = useState<'tr' | 'en'>('tr');
   const en = language === 'en';
 
@@ -29,27 +31,36 @@ export default function Home() {
     }), { threshold: .15 });
     root.querySelectorAll('.reveal').forEach(element => observer.observe(element));
     window.addEventListener('mousemove', pointer, { passive: true });
-    return () => { observer.disconnect(); window.removeEventListener('mousemove', pointer); cancelAnimationFrame(frame); };
+    return () => { observer.disconnect(); window.removeEventListener('mousemove', pointer); cancelAnimationFrame(frame); cancelAnimationFrame(particleFrame.current); };
   }, []);
 
   const moveParticles = (event: ReactPointerEvent<HTMLElement>) => {
-    event.currentTarget.querySelectorAll<HTMLElement>('.particle').forEach(dot => {
-      const rect = dot.getBoundingClientRect();
-      const dx = rect.left + rect.width / 2 - event.clientX;
-      const dy = rect.top + rect.height / 2 - event.clientY;
-      const distance = Math.hypot(dx, dy);
-      if (distance < 150) {
-        const force = (150 - distance) / 150;
-        dot.style.setProperty('--push-x', `${(dx / Math.max(distance, 1)) * force * 85}px`);
-        dot.style.setProperty('--push-y', `${(dy / Math.max(distance, 1)) * force * 85}px`);
-      } else {
-        dot.style.setProperty('--push-x', '0px');
-        dot.style.setProperty('--push-y', '0px');
-      }
+    if (particleFrame.current) cancelAnimationFrame(particleFrame.current);
+    const section = event.currentTarget;
+    const pointerX = event.clientX;
+    const pointerY = event.clientY;
+    particleFrame.current = requestAnimationFrame(() => {
+      section.querySelectorAll<HTMLElement>('.particle').forEach(dot => {
+        const rect = dot.getBoundingClientRect();
+        const dx = rect.left + rect.width / 2 - pointerX;
+        const dy = rect.top + rect.height / 2 - pointerY;
+        const distance = Math.hypot(dx, dy);
+        if (distance < 150) {
+          const force = (150 - distance) / 150;
+          dot.style.setProperty('--push-x', `${(dx / Math.max(distance, 1)) * force * 85}px`);
+          dot.style.setProperty('--push-y', `${(dy / Math.max(distance, 1)) * force * 85}px`);
+        } else {
+          dot.style.setProperty('--push-x', '0px');
+          dot.style.setProperty('--push-y', '0px');
+        }
+      });
+      particleFrame.current = 0;
     });
   };
 
   const resetParticles = (event: ReactPointerEvent<HTMLElement>) => {
+    cancelAnimationFrame(particleFrame.current);
+    particleFrame.current = 0;
     event.currentTarget.querySelectorAll<HTMLElement>('.particle').forEach(dot => {
       dot.style.setProperty('--push-x', '0px');
       dot.style.setProperty('--push-y', '0px');
@@ -61,8 +72,8 @@ export default function Home() {
       <a href="#top" className="signature">emre<span>.</span></a>
       <nav aria-label={en ? 'Main menu' : 'Ana menü'}><a href="#hakkimda">{en ? 'About' : 'Hakkımda'}</a><a href="#bave">Bave</a><a href="#projeler">{en ? 'Projects' : 'Projeler'}</a></nav>
       <div className="header-actions">
-        <a className="social-link github-link" href="https://github.com/cordukfurkanemre" target="_blank" rel="noreferrer" aria-label={en ? 'My GitHub profile' : 'GitHub profilim'}><img src="/github.svg" alt="" /></a>
-        <a className="social-link linkedin-link" href="https://www.linkedin.com/in/cordukfurkanemre/" target="_blank" rel="noreferrer" aria-label={en ? 'My LinkedIn profile' : 'LinkedIn profilim'}><img src="/linkedin.svg" alt="" /></a>
+        <a className="social-link github-link" href="https://github.com/cordukfurkanemre" target="_blank" rel="noreferrer" aria-label={en ? 'My GitHub profile' : 'GitHub profilim'}><Image src="/github.svg" width={24} height={24} alt="" /></a>
+        <a className="social-link linkedin-link" href="https://www.linkedin.com/in/cordukfurkanemre/" target="_blank" rel="noreferrer" aria-label={en ? 'My LinkedIn profile' : 'LinkedIn profilim'}><Image src="/linkedin.svg" width={24} height={24} alt="" /></a>
         <button className="lang-toggle" type="button" onClick={() => setLanguage(en ? 'tr' : 'en')} aria-label={en ? 'Türkçeye geç' : 'Switch to English'}><Languages size={15}/><span>{en ? 'Türkçe' : 'English'}</span></button>
         <a className="hello-link" href="#iletisim"><span>{en ? 'Say hello' : 'Merhaba de'}</span><ArrowUpRight size={16}/></a>
       </div>
@@ -97,9 +108,9 @@ export default function Home() {
       <p className="section-no reveal">01 — {en ? 'About' : 'Hakkımda'}</p>
       <div className="about-grid">
         <div className="about-gallery reveal" aria-label={en ? 'A few moments from my life' : 'Hayatımdan birkaç kare'}>
-          <figure className="portrait portrait-one"><img src="/about-01.jpg" alt={en ? 'Emre outdoors' : 'Emre açık havada'} /></figure>
-          <figure className="portrait portrait-two"><img src="/about-02.jpg" alt={en ? 'Emre beneath a cloudy sky' : 'Emre bulutlu bir gökyüzünün altında'} /></figure>
-          <figure className="portrait portrait-three"><img src="/about-03.jpg" alt={en ? 'Emre in a canyon' : 'Emre bir kanyonda'} /></figure>
+          <figure className="portrait portrait-one"><Image src="/about-01.jpg" width={960} height={1200} loading="lazy" alt={en ? 'Emre outdoors' : 'Emre açık havada'} /></figure>
+          <figure className="portrait portrait-two"><Image src="/about-02.jpg" width={960} height={1200} loading="lazy" alt={en ? 'Emre beneath a cloudy sky' : 'Emre bulutlu bir gökyüzünün altında'} /></figure>
+          <figure className="portrait portrait-three"><Image src="/about-03.jpg" width={960} height={1267} loading="lazy" alt={en ? 'Emre in a canyon' : 'Emre bir kanyonda'} /></figure>
         </div>
         <div className="about-copy reveal">{en ? <><p>I have been surrounded by computers since childhood. Spending time with them, taking things apart and learning something new always felt natural to me. Choosing software was not a sudden decision; it became the natural continuation of what I had always wanted to do.</p><p>My time at SellerRunning placed me inside a real team and product process. What I learned there still shapes how I approach my own projects today.</p><p>I still consider myself at the beginning of the journey. That is why this site is both an archive of completed work and a record of what I learn and build over time.</p></> : <><p>Küçüklüğümden beri bilgisayarların içinde büyüdüm. Onlarla uzun süre vakit geçirmek, kurcalamak ve yeni şeyler öğrenmek hayatımın doğal bir parçasıydı. Bu yüzden kendime bir meslek seçerken yazılım benim için sonradan verilmiş bir karar değil, her zaman yapmak istediğim şeyin doğal devamı oldu.</p><p>SellerRunning’de çalıştığım dönem, gerçek bir ekibin ve ürün sürecinin içinde yer almamı sağladı. Orada edindiğim deneyim bugün kendi projelerime yaklaşımımı da şekillendiriyor.</p><p>Henüz yolun başında sayılırım. Bu yüzden bu site bitmiş işlerin arşivi kadar, öğrendiklerimin ve zaman içinde geliştirdiklerimin de kaydı.</p></>}</div>
       </div>
@@ -111,7 +122,7 @@ export default function Home() {
         {Array.from({ length: 30 }, (_, index) => <span className="particle" key={index} style={{ '--px': `${(index * 37) % 96}%`, '--py': `${(index * 61) % 94}%`, '--size': `${4 + (index % 4) * 2}px`, '--delay': `${-(index % 9)}s` } as CSSProperties}/>)}
       </div>
       <div className="bave-mark reveal">
-        <img src="/bave-logo.png" alt={en ? 'Bave Software logo' : 'Bave Software logosu'} />
+        <Image src="/bave-logo.png" width={512} height={512} alt={en ? 'Bave Software logo' : 'Bave Software logosu'} />
         <i/><i/><i/>
       </div>
       <div className="bave-copy">
