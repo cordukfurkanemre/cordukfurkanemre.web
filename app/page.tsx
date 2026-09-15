@@ -147,13 +147,13 @@ export default function Home() {
         <div className="project-status"><span>{en ? 'Founder / Developer' : 'Kurucu / Geliştirici'}</span><span className="bave-status">{en ? 'Active' : 'Aktif'}</span></div>
         <ArrowUpRight className="project-arrow"/>
       </a>
-      <article className="project reveal">
+      <a className="project reveal" href="https://martipetveterinerklinigi.com/" target="_blank" rel="noopener noreferrer" aria-label={en ? 'Visit the Martı Pet Veterinary Clinic website (opens in a new tab)' : 'Martı Pet Veteriner Kliniği sitesini ziyaret et (yeni sekmede açılır)'}>
         <div className="project-index">002</div>
         <div className="project-title"><p>{en ? 'Under Bave Software' : 'Bave Software altında'}</p><h3>Martı Pet</h3></div>
-        <p className="project-description">{en ? 'A web project that brings a veterinary clinic’s services, team and contact details together in a clear digital experience.' : 'Veteriner kliniğinin hizmetlerini, ekibini ve iletişim bilgilerini yalın bir dijital deneyimde bir araya getiren web projesi.'}</p>
-        <div className="project-status"><span>{en ? 'Web development' : 'Web geliştirme'}</span><span className="active-dot">{en ? 'In development' : 'Geliştiriliyor'}</span></div>
+        <p className="project-description">{en ? 'The website I developed for Martı Pet Veterinary Clinic, bringing its services, team and contact details together in a clear digital experience.' : 'Martı Pet Veteriner Kliniği için geliştirdiğim; hizmetleri, ekibi ve iletişim bilgilerini yalın bir dijital deneyimde bir araya getiren internet sitesi.'}</p>
+        <div className="project-status"><span>{en ? 'Visit website' : 'Siteyi ziyaret et'}</span><span className="active-dot">{en ? 'Live' : 'Yayında'}</span></div>
         <ArrowUpRight className="project-arrow"/>
-      </article>
+      </a>
       <a className="project reveal" href="https://chromewebstore.google.com/detail/sahibinden-koyu-tema/ieckbcghekffmkolhjenhhmkamnoghoo" target="_blank" rel="noopener noreferrer" aria-label={en ? 'View Sahibinden Dark Theme in the Chrome Web Store (opens in a new tab)' : 'Sahibinden Koyu Tema eklentisini Chrome Web Mağazası’nda incele (yeni sekmede açılır)'}>
         <div className="project-index">003</div>
         <div className="project-title"><p>{en ? 'Dark theme · Chrome extension' : 'Koyu tema · Chrome eklentisi'}</p><h3>Sahibinden</h3></div>
