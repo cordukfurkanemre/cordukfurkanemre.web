@@ -639,10 +639,11 @@ nav a:focus-visible,
   color: #b69aff;
 }
 .project-arrow {
-  transition: transform 0.3s;
+  transition: transform 0.3s, color 0.3s;
 }
 .project:hover .project-arrow {
-  transform: rotate(45deg);
+  transform: translateX(6px) rotate(45deg);
+  color: #9ad67b;
 }
 .muted-project {
   opacity: 0.55;
