@@ -161,8 +161,15 @@ export default function Home() {
         <div className="project-status"><span>{en ? 'View in Chrome Web Store' : 'Chrome Web Mağazası’nda incele'}</span><span className="active-dot">{en ? 'Published · Beta' : 'Yayında · Beta'}</span></div>
         <ArrowUpRight className="project-arrow"/>
       </a>
-      <article className="project muted-project reveal">
+      <a className="project reveal" href="https://github.com/cordukfurkanemre/PulseWatch" target="_blank" rel="noopener noreferrer" aria-label={en ? 'View PulseWatch on GitHub (opens in a new tab)' : 'PulseWatch projesini GitHub’da incele (yeni sekmede açılır)'}>
         <div className="project-index">004</div>
+        <div className="project-title"><p>{en ? 'Website monitoring · REST API' : 'Site erişilebilirlik takibi · REST API'}</p><h3>PulseWatch</h3></div>
+        <p className="project-description">{en ? 'A backend project I built with C#, ASP.NET Core and Entity Framework Core to monitor website availability, HTTP status codes and response times. The completed project is public on GitHub for anyone to explore.' : 'Web sitelerinin erişilebilirliğini, HTTP durum kodlarını ve yanıt sürelerini takip etmek için C#, ASP.NET Core ve Entity Framework Core ile geliştirdiğim backend projesi. Tamamladığım projeyi, isteyen herkesin inceleyebilmesi için GitHub’da herkese açık paylaştım.'}</p>
+        <div className="project-status"><span>{en ? 'View on GitHub' : 'GitHub’da incele'}</span><span className="active-dot">{en ? 'Completed' : 'Tamamlandı'}</span></div>
+        <ArrowUpRight className="project-arrow"/>
+      </a>
+      <article className="project muted-project reveal">
+        <div className="project-index">005</div>
         <div className="project-title"><p>{en ? 'What’s next?' : 'Sırada ne var?'}</p><h3>{en ? 'New ideas' : 'Yeni fikirler'}</h3></div>
         <p className="project-description">{en ? 'New products I’m researching, prototyping and will add to this list over time.' : 'Araştırdığım, prototiplediğim ve zamanla bu listeye ekleyeceğim yeni ürünler.'}</p>
         <div className="project-status"><span>{en ? 'Experiments' : 'Deneyler'}</span><span>{en ? 'Ongoing' : 'Devam ediyor'}</span></div>
